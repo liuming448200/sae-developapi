@@ -1,0 +1,6 @@
+name: developapi
+version: 1
+
+handle:
+- rewrite: if (!-d && !-f) goto "/index.php?%{QUERY_STRING}"
+- compress: if (%{RESP:Content-Length} >= 10240) compress
